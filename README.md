@@ -3,6 +3,11 @@
 ## Project Overview
 This project documents the end-to-end assembly, quality control, and technical analysis of a high-fidelity analog audio signal processor based on the Klon Centaur circuit. The objective was to execute a reliable **Through-Hole Technology (THT) assembly process** following a strict Control Plan.
 
+> **Project Scope Note:**
+> This project was executed in two parallel streams to maximize learning outcomes:
+> 1. **Design & Analysis:** The circuit schematics and PCB layout were designed/modeled in **EasyEDA** to study the topology and signal paths.
+> 2. **Physical Implementation:** The physical assembly utilized a **standardized component kit** to focus strictly on **THT soldering quality, process control, and FMEA execution**, ensuring a reliable reference for testing.
+
 ---
 
 ## 1. Engineering Design
@@ -14,7 +19,7 @@ Analysis of the dual-ganged summing amplifier topology and charge pump power sup
 
 ### PCB Layout (Top Layer)
 Design optimized for signal integrity and low noise floor.
-![PCB Top Layer](KlonCentaurProject/01_Engineering_Design/2_PCB_Layout_Gerbers/PCB_Top_Layer.png)
+![PCB Top Layer](KlonCentaurProject/01_Engineering_Design/2_PCB_Layout/PCB_Top_Layer.png)
 
 ---
 
