@@ -28,6 +28,7 @@ Design optimized for signal integrity and low noise floor.
 
 ### THT Assembly Phase (PCBA)
 Populating low-profile components (Resistors/Diodes) and IC sockets.
+
 ![Assembly Stage](KlonCentaurProject/02_Manufacturing_Log/03_THT_Assembly_Stage1.jpg)
 
 ### Final Integration & Wiring
