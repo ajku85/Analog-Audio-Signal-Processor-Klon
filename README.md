@@ -1,33 +1,33 @@
-# Analog Signal Processor: Klon Centaur Clone
+
+# Analog Signal Processor: Klon Centaur Clone (Manufacturing & Analysis)
 
 ## Project Overview
-This project involves the assembly, analysis, and verification of a high-fidelity analog audio signal processor based on the legendary Klon Centaur circuit. The goal was to study **signal integrity**, **non-linear amplification (clipping)**, and **power supply charge pumps** in a practical audio application.
+This project documents the end-to-end assembly, quality control, and technical analysis of a high-fidelity analog audio signal processor based on the Klon Centaur circuit. The objective was to execute a reliable **Through-Hole Technology (THT) assembly process** following a strict Control Plan and Design for Manufacturing (DFM) principles.
 
-## Technical Highlights
-* **Circuit Topology:** Overdrive circuit with a unique "dual-ganged" gain potentiometer that blends the clean signal with the clipped signal (Summing Amplifier).
-* **Clipping Mechanism:** Utilizes **Germanium Diodes (1N34A)** for soft-clipping characteristics, distinct from the hard-clipping found in silicon-based circuits.
-* **Power Management:** Includes a **Charge Pump (ICL7660S)** to convert +9V input into +18V internal headroom, increasing dynamic range and preventing unwanted distortion in the buffer stage.
-* **Impedance Matching:** High-impedance JFET Input Buffer to prevent signal loading (Tone Sucking).
+## 1. Engineering & Design
+*(See `/01_Engineering_Design` for schematics, layout, and mechanical drawings)*
 
-## Verification & Measurements
-*(See `/Measurements` folder for oscilloscope screenshots)*
+The device features specific analog design choices validated during the build:
 
-To validate the circuit's performance, I conducted physical tests using a standard Oscilloscope and Function Generator:
+* **Power Management:** Implementation of a **Charge Pump (ICL7660S)** voltage converter. This boosts the standard +9V input to a ~18V internal rail, providing greater dynamic headroom and preventing unwanted distortion in the Op-Amp buffer stages.
+* **Non-Linear Response:** Usage of **Germanium Diodes (1N34A)** in the feedback loop for specific "soft-clipping" signal conditioning, distinct from silicon-based hard clipping.
+* **Mechanical Design:** Enclosure drilling template designed to ensure precise alignment of potentiometers and jacks.
+    * *File Ref:* `3_Mechanical_Enclosure/Enclosure_Drill_Template.png`
 
-* **Test Signal:** 1 kHz Sine Wave, 500mVpp.
-* **Clipping Analysis:** Verified the "Soft Clipping" behavior. Unlike the square-wave cutoff typical of Silicon diodes (0.7V drop), the Germanium diodes (0.3V drop) produced a rounded compression of the sine wave peaks, confirming the desired harmonic distortion profile.
-* **Output Buffer:** Verified unity gain and signal stability at the output stage.
+## 2. Manufacturing Process Log
+*(See `/02_Manufacturing_Log` for visual progression)*
 
-## Build Quality
-*(See `/Build_Photos` folder)*
+The assembly followed a sequential workflow to minimize defects. Key milestones documented:
 
-* **Soldering:** Through-hole (THT) assembly with focus on joint reliability and flux cleaning.
-* **Wiring:** Star-grounding technique used to minimize 50Hz/60Hz hum and chassis noise.
-* **Components:** Metal film resistors (1% tolerance) used in signal paths to reduce thermal noise.
+### Phase 1: Incoming Inspection & BOM Verification
+* **File:** `01_Incoming_Parts_Check.jpg` & `02_Components_Detail.jpg`
+* **Action:** Verified raw components against the Bill of Materials (BOM). Checked resistor values (1% Metal Film) using a multimeter and verified capacitor tolerances before acceptance.
 
-## Tools Used
-* **Hardware:** Soldering Station, Digital Multimeter, Oscilloscope.
-* **Software:** LTspice (for preliminary simulation), KiCad (schematic review).
+### Phase 2: THT Assembly (PCBA)
+* **File:** `03_THT_Assembly_Stage1.jpg`
+* **Action:** Populated low-profile components first (Resistors/Diodes) followed by IC sockets.
+* **File:** `04_PCBA_Completed_Top.jpg`
+* **Action:** Completed board assembly. Visual inspection of solder joints to ensure proper wetting and absence of cold joints or solder bridges.
 
----
-*Author: Andres Guevara Gamboa*
+### Phase 3: Final Integration & Wiring
+* **File:** `05_Final
