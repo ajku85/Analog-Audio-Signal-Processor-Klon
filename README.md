@@ -1,33 +1,55 @@
-
 # Analog Signal Processor: Klon Centaur Clone (Manufacturing & Analysis)
 
 ## Project Overview
-This project documents the end-to-end assembly, quality control, and technical analysis of a high-fidelity analog audio signal processor based on the Klon Centaur circuit. The objective was to execute a reliable **Through-Hole Technology (THT) assembly process** following a strict Control Plan and Design for Manufacturing (DFM) principles.
+This project documents the end-to-end assembly, quality control, and technical analysis of a high-fidelity analog audio signal processor based on the Klon Centaur circuit. The objective was to execute a reliable **Through-Hole Technology (THT) assembly process** following a strict Control Plan.
 
-## 1. Engineering & Design
-*(See `/01_Engineering_Design` for schematics, layout, and mechanical drawings)*
+---
 
-The device features specific analog design choices validated during the build:
+## 1. Engineering Design
+*(Technical Documentation & Schematics)*
 
-* **Power Management:** Implementation of a **Charge Pump (ICL7660S)** voltage converter. This boosts the standard +9V input to a ~18V internal rail, providing greater dynamic headroom and preventing unwanted distortion in the Op-Amp buffer stages.
-* **Non-Linear Response:** Usage of **Germanium Diodes (1N34A)** in the feedback loop for specific "soft-clipping" signal conditioning, distinct from silicon-based hard clipping.
-* **Mechanical Design:** Enclosure drilling template designed to ensure precise alignment of potentiometers and jacks.
-    * *File Ref:* `3_Mechanical_Enclosure/Enclosure_Drill_Template.png`
+### Circuit Diagram
+Analysis of the dual-ganged summing amplifier topology and charge pump power supply (+18V).
+![Schematic Diagram](KlonCentaurProject/01_Engineering_Design/1_Schematics/Circuit_Diagram_Rev1.png)
+
+### PCB Layout (Top Layer)
+Design optimized for signal integrity and low noise floor.
+![PCB Top Layer](KlonCentaurProject/01_Engineering_Design/2_PCB_Layout_Gerbers/PCB_Top_Layer.png)
+
+---
 
 ## 2. Manufacturing Process Log
-*(See `/02_Manufacturing_Log` for visual progression)*
+*(Visual documentation of the THT assembly workflow)*
 
-The assembly followed a sequential workflow to minimize defects. Key milestones documented:
+### THT Assembly Phase (PCBA)
+Populating low-profile components (Resistors/Diodes) and IC sockets.
+![Assembly Stage](KlonCentaurProject/02_Manufacturing_Log/03_THT_Assembly_Stage1.jpg)
 
-### Phase 1: Incoming Inspection & BOM Verification
-* **File:** `01_Incoming_Parts_Check.jpg` & `02_Components_Detail.jpg`
-* **Action:** Verified raw components against the Bill of Materials (BOM). Checked resistor values (1% Metal Film) using a multimeter and verified capacitor tolerances before acceptance.
+### Final Integration & Wiring
+Internal view showing off-board wiring, star-grounding implementation, and mechanical assembly.
+![Internal Wiring](KlonCentaurProject/02_Manufacturing_Log/05_Final_Internal_Wiring.jpg)
 
-### Phase 2: THT Assembly (PCBA)
-* **File:** `03_THT_Assembly_Stage1.jpg`
-* **Action:** Populated low-profile components first (Resistors/Diodes) followed by IC sockets.
-* **File:** `04_PCBA_Completed_Top.jpg`
-* **Action:** Completed board assembly. Visual inspection of solder joints to ensure proper wetting and absence of cold joints or solder bridges.
+### Final Product
+Completed unit ready for Functional Testing (FNT).
+![Final Product](KlonCentaurProject/02_Manufacturing_Log/06_Final_Product_Exterior.jpg)
 
-### Phase 3: Final Integration & Wiring
-* **File:** `05_Final
+---
+
+## 3. Quality Assurance: FMEA Approach
+A **Failure Mode and Effect Analysis (FMEA)** was conducted to anticipate assembly risks (Excerpt from project documentation):
+
+| Process Step | Potential Failure Mode | Risk Priority (RPN) | Mitigation Strategy |
+| :--- | :--- | :--- | :--- |
+| **Component Insertion** | Polarized Capacitor Reverse | High (81) | Verify stripe orientation before soldering; QC check. |
+| **Soldering** | Solder Bridge (Short Circuit) | Medium (64) | Post-solder visual inspection & Flux cleaning. |
+| **Wiring** | DC Jack Polarity Inversion | Low (18) | Continuity test with multimeter before powering up. |
+
+---
+
+## Tools & Equipment Used
+* **Soldering:** Adjustable Temperature Station (350°C).
+* **Measurement:** Digital Multimeter (Continuity, Resistance, Voltage drop).
+* **Documentation:** EasyEDA (Schematics), MS Word (Process Flowchart).
+
+---
+*Project executed by Andres Guevara Gamboa - University of Pécs*
